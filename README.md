@@ -1,5 +1,7 @@
 # Credit Card Validator
 
+### From [Codecademy](https://www.codecademy.com/paths/back-end-engineer-career-path/tracks/becp-javascript-syntax-part-ii/modules/fecp-challenge-project-credit-card-checker/projects/credit-card-checker)
+
 ## Overview
 This project is slightly different than others you have encountered thus far on Codecademy. Instead of a step-by-step tutorial, this project contains a series of open-ended requirements which describe the project you’ll be building. There are many possible ways to correctly fulfill all of these requirements, and you should expect to use the internet, Codecademy, and other resources when you encounter a problem that you cannot easily solve.
 
