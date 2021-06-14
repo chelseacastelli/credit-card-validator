@@ -50,10 +50,32 @@ const findInvalidCards = nestedCCNumbers => {
 }
 
 
+const idInvalidCardCompanies = nestedInvalidCCNumbers => {
+    const companies = {
+        3 : 'Amex',
+        4 : 'Visa',
+        5 : 'Mastercard',
+        6 : 'Discover'
+    }
+
+    let companiesWithInvalidCards = new Set();
+
+    for (const index in nestedInvalidCCNumbers) {
+        if (nestedInvalidCCNumbers[index][0] in companies) { 
+            companiesWithInvalidCards.add(companies[nestedInvalidCCNumbers[index][0]]); 
+        } else {
+            console.log('Company not found');
+        }
+    }
+    return [...companiesWithInvalidCards];
+}
+
 
 let invalidCards = findInvalidCards(batch);
 
-
+// console.log(idInvalidCardCompanies([invalid1])); // Should print['visa']
+// console.log(idInvalidCardCompanies([invalid2])); // Should print ['mastercard']
+console.log(idInvalidCardCompanies(invalidCards)); // Find out which companies have mailed out invalid cards
 
 
 
