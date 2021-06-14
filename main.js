@@ -25,20 +25,33 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 const validateCred = ccNumbers => {
-    let temp = ccNumbers.reverse();
-    for (let i = 1; i < temp.length; i += 2) {
+    // Using `slice()` makes `temp` point to a new array rather than ccNumbers
+    let temp = ccNumbers.slice();
+
+    for (let i = temp.length-2; i >= 0; i-=2) {
         temp[i] *= 2;
         if (temp[i] > 9) { temp[i] -= 9; }
     }
 
     let sum = temp.reduce((a,b) => a+b);
-    
     return sum % 10 === 0 ? true : false;
-};
+}
 
 
-console.log(validateCred([4, 5, 3, 9, 6, 8, 9, 8, 8, 7, 7, 0, 5, 7, 9, 8]));
+const findInvalidCards = nestedCCNumbers => {
+    let invalids = [];
+    for (let i = 0; i < nestedCCNumbers.length; i++) {
+        if (!validateCred(nestedCCNumbers[i])) { 
+            invalids.push(nestedCCNumbers[i]); 
+        }
+    }
 
+    return invalids;
+}
+
+
+
+let invalidCards = findInvalidCards(batch);
 
 
 
